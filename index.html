@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="ХИВ,СИДА,Македонија">
+    <meta name="author" content="Мартин Анѓелевски">
+    <meta name="description" content="ХИВ и СИДА статистика во Македонија">
+    <title>ХИВ/СИДА Македонија</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@2"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
+</head>
+<body>
+
+<div class="first-block">
+    <table class="menu">
+        <tr>
+            <td><a href="index.html">Податоци за ХИВ</a></td><td><a href="aids.html">Податоци за СИДА</a></td><td><a href="info.html">Повеќе информации</a></td>
+        </tr>
+    </table>
+    <div class="page-title">
+        <p>Податоци за</p>
+        <p><span style="color: firebrick">ХИВ</span> во Македонија</p>
+        <p>Заклучно со 2018 година<br>Извор: <a href="pdf/hiv-surveillance-report-2019.pdf" target="_blank" style="color: firebrick">HIV/AIDS Surveillance in Europe 2019</a></p>
+    </div>
+    <img src="images/scroll-down-arrow-icon-300x300-1786081830.png">
+</div>
+<h3>НОВОДИЈАГНОСТИЦИРАНИ СЛУЧАИ</h3>
+<div class="container">
+    <div class="canvas-container card" style="width: 40%">
+        <canvas id="Chart1" style=""></canvas>
+    </div>
+    <div class="card cumulative">
+            <p>Кумулативен збир од 1993 до 2018:</p>
+            <p id="target">246</p>
+
+    </div>
+</div>
+
+
+<h3>ПОДЕЛБА СПОРЕД ПОЛ</h3>
+<div class="container">
+    <div class="canvas-container card">
+        <canvas id="Chart2" style=""></canvas>
+    </div>
+
+    <div class="canvas-container card" style="width: 35%">
+        <canvas id="Chart3" style=""></canvas>
+    </div>
+</div>
+
+<h3>ПОДЕЛБА СПОРЕД НАЧИН НА ТРАНСМИСИЈА</h3>
+<div class="container">
+    <div class="canvas-container card" style="">
+        <canvas id="Chart4" style=""></canvas>
+    </div>
+    <div class="canvas-container card" style=" width: 35%">
+        <canvas id="Chart5" style=""></canvas>
+    </div>
+</div>
+<button onclick="topFunction()" id="myBtn" title="Go to top">&uparrow;</button>
+<footer>
+
+</footer>
+<script>
+    let project = setInterval(projectDone, 10)
+    let count1 = 1;
+    function projectDone() {
+        count1++
+        document.querySelector("#target").innerHTML = count1
+        if (count1 == 246) {
+            clearInterval(project)
+        }
+    }
+
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+</script>
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

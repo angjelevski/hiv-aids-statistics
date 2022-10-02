@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>ХИВ/СИДА Македонија</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@2"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
+</head>
+<body>
+
+<div class="first-block">
+    <table class="menu">
+        <tr>
+            <td><a href="index.html">Податоци за ХИВ</a></td><td><a href="aids.html">Податоци за СИДА</a></td><td><a href="info.html">Повеќе информации</a></td>
+        </tr>
+    </table>
+    <div class="page-title info-title">
+        <p>Повеќе информации<br>
+           за ХИВ и СИДА,<br>нивна превенција и лекување</p>
+    </div>
+    <img src="images/scroll-down-arrow-icon-300x300-1786081830.png">
+</div>
+
+<div class="container">
+<!--    <h3>ХИВ</h3>-->
+<!--    <h3>СИДА</h3>-->
+</div>
+
+<div class="container container-info">
+    <div class="card info">
+        <h3>ХИВ</h3>
+        <p>
+            ХИВ или вирус на имунодефициенција кај човекот претставува сексуално пренослива инфекција која го напаѓа имунолошкиот систем.
+            Овој вирус се пренесува преку незаштитен сексуален однос при што најголем ризик за пренос носи незаштитениот анален секс,
+            преку користење на нестерилен прибор при инјектирање на дрога и од мајка на своето дете доколку била ХИВ позитивна за време на бременоста, пораѓајот и во периодот на доење.
+            Односно, ХИВ е застапен само во овие течности: крв, сперма, претсемена течност, вагинална течност и мајчино млеко.
+        </p>
+    </div>
+    <div class="card info">
+        <h3>СИДА</h3>
+        <p>
+            Доколку не биде навремено детектиран и лекуван, ХИВ може да предизвика СИДА што означува синдром на стекната имунодефициенција.
+            Ова е состојба во која организмот има намалена способност да се брани од разни микроорганизми што предизвикуваат различни заболувања,
+            кои пак може лесно да прогресираат и да предизвикаат смрт.
+        </p>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="info prevent">
+        <h3>ПРЕВЕНЦИЈА И ЛЕКУВАЊЕ</h3>
+        <div class="canvas-container" style="width: 45%; ">
+            <canvas id="Chart10" style=""></canvas>
+        </div>
+        <p>
+            За среќа, во моментов постојат неколку начини за превенција и третман на ХИВ. Правилната употреба на кондомите и практикување на заштитен секс
+            е ефикасна заштита од повеќето сексуално преносливи инфекции. Друга метода за заштита од ХИВ е ПрЕП. Предекспозициска профилакса (ПрЕП)
+            се таблети со чие редовно земање луѓето кои немаат ХИВ можат да ја превенираат инфекцијата.
+            Навременото тестирање и дознавање на својот ХИВ статус е битен фактор за заштита од ХИВ. Доколку сте ХИВ позитивни, со антиретровирусна терапија (АРТ)
+            се спречува размножувањето на вирусот во организмот и се намалува неговото количество до степен на недетектабилност, односно вирусот не може да биде пренесен на друго лице.
+            Така луѓето со ХИВ можат да живеат долг и квалитетен живот.
+        </p>
+
+    </div>
+</div>
+<button onclick="topFunction()" id="myBtn" title="Go to top">&uparrow;</button>
+<footer>
+
+</footer>
+
+<script>
+    Chart.register(ChartDeferred);
+    const ctx10 = document.getElementById('Chart10');
+    const myChart10 = new Chart(ctx10, {
+        type: 'radar',
+        data: {
+            labels: [2009,2010,2011,2012,2013,2014,2015,2016,2017],
+            datasets: [{
+                label: '',
+                data: [11842, 18721,	17811,	18105,	24562,	27430,	28601,	30211,	36248],
+                fill: true,
+                tension: 0.1,
+                borderColor: 'rgba(237, 0, 0, 0.7)',
+                backgroundColor: 'rgba(237, 0, 0,0.1)',
+                borderWidth: 3,
+                hoverBackgroundColor: '#ffffff',
+                hoverBorderWidth: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    title: {
+                        font: {
+                            weight: 700,
+                            size: 13
+                        },
+                        display: true,
+                        text: 'Број на ХИВ тестирања (2009-2017)'
+                    }
+                },
+                deferred: {
+                    xOffset: 150,
+                    yOffset: '50%',
+                    delay: 500
+                }
+            }
+        }
+    });
+
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+</body>
+</html>
